@@ -38,7 +38,7 @@ var shadedCube = function () {
   var flag = false;
   var moveFlag = false;
   var translation = vec3(-1.0, 0.0, 0.0); // Start from the left
-  var mass = 5; // Nilai awal massa
+  var mass = 25; // Nilai awal massa
   var appliedForce = 0;
   var frictionCoefficient = 0.1;
   var velocity = 0;
@@ -82,8 +82,14 @@ var shadedCube = function () {
   function init() {
     canvas = document.getElementById("gl-canvas");
 
-    gl = canvas.getContext("webgl2");
+    gl = canvas.getContext("webgl2", { antialias: false });
     if (!gl) alert("WebGL 2.0 isn't available");
+
+    var realToCSSPixels = window.devicePixelRatio || 1;
+    var displayWidth  = Math.floor(canvas.clientWidth  * realToCSSPixels);
+    var displayHeight = Math.floor(canvas.clientHeight * realToCSSPixels);
+    canvas.width = displayWidth;
+    canvas.height = displayHeight;
 
     gl.viewport(0, 0, canvas.width, canvas.height);
     gl.clearColor(1.0, 1.0, 1.0, 1.0);
@@ -118,7 +124,7 @@ var shadedCube = function () {
 
     viewerPos = vec3(0.0, 0.0, -20.0);
 
-    projectionMatrix = ortho(-1, 1, -1, 1, -100, 100);
+    projectionMatrix = ortho(-1, 1, -1, 1, -10, 10);
 
     var ambientProduct = mult(lightAmbient, materialAmbient);
     var diffuseProduct = mult(lightDiffuse, materialDiffuse);
@@ -219,7 +225,7 @@ var shadedCube = function () {
       time += 0.01 * speedMultiplier; // Update time
 
       if (translation[0] > 1.0) {
-        translation[0] = -1.0; // Reset to start from the left
+        moveFlag = false;
       }
 
       document.getElementById("velocityValue").textContent = velocity.toFixed(2);
