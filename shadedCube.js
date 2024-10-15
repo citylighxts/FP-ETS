@@ -162,6 +162,7 @@ var shadedCube = function () {
         moveFlag = false;
         translation = vec3(-1.0, 0.0, 0.0);
         velocity = 0;
+        appliedForce = 0;
         time = 0;
         document.getElementById("velocityValue").textContent = velocity.toFixed(2);
         document.getElementById("accelerationValue").textContent = acceleration.toFixed(2);
