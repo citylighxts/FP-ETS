@@ -3,7 +3,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 130vh;
+    height: 120vh;
     margin: 0;
     background-color: #f8f1f1;
     font-family: Arial, sans-serif;
@@ -17,7 +17,7 @@ body {
 }
 
 #gl-canvas {
-    border: 2px solid #ff5733;
+    border: 2px solid hotpink;
     border-radius: 8px;
     width: 720px;
     height: 720px;
@@ -41,10 +41,10 @@ body {
     margin-bottom: 10px;
 }
 
-button {
+button, #ModeSelect {
     margin: 5px;
     padding: 12px 24px;
-    background-color: #ff5733;
+    background-color: hotpink;
     color: white;
     border: none;
     border-radius: 8px;
@@ -54,7 +54,7 @@ button {
 }
 
 button:hover {
-    background-color: #ff2e00;
+    background-color: #a7097a
 }
 
 .slider-container {
@@ -73,7 +73,7 @@ input[type="range"] {
     -webkit-appearance: none;
     appearance: none;
     height: 6px;
-    background: #ffb84d;
+    background: pink;
     outline: none;
     opacity: 0.9;
     transition: opacity 0.3s;
@@ -85,7 +85,7 @@ input[type="range"]::-webkit-slider-thumb {
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background: #ff5733;
+    background: hotpink;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -94,7 +94,7 @@ input[type="range"]::-moz-range-thumb {
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background: #ff5733;
+    background: hotpink;
     cursor: pointer;
 }
 
@@ -102,7 +102,7 @@ input[type="range"]::-moz-range-thumb {
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 20px;
-    color: #ff5733;
+    color: #d61f8f;
     text-align: center;
 }
 
@@ -125,7 +125,7 @@ input[type="range"]::-moz-range-thumb {
     text-align: center;
     font-size: 24px;
     margin: 15px 0;
-    background-color: #fff3e0;
+    background-color: pink;
     padding: 10px;
     border-radius: 8px;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
@@ -143,5 +143,5 @@ input[type="range"]::-moz-range-thumb {
 
 .description ul li span {
     font-weight: bold;
-    color: #ff5733;
+    color: hotpink;
 }

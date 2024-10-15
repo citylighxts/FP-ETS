@@ -16,9 +16,17 @@ var shadedCube = function () {
   var lightDiffuse = vec4(1.0, 1.0, 1.0, 1.0);
   var lightSpecular = vec4(1.0, 1.0, 1.0, 1.0);
 
-  var materialAmbient = vec4(1.0, 0.0, 1.0, 1.0);
-  var materialDiffuse = vec4(1.0, 0.8, 0.0, 1.0);
-  var materialSpecular = vec4(1.0, 0.8, 0.0, 1.0);
+  var materialAmbient = vec4(0.65, 0.04, 0.48, 1.0);
+  var materialDiffuse = vec4(0.65, 0.04, 0.48, 1.0);
+  var materialSpecular = vec4(0.9, 0.7, 0.9, 1.0);
+
+  // ambient is the base color of the object
+  // diffuse is the color of the object when light hits it
+  // specular is the highlight of the object when light hits it
+
+  // difference of lightSpecular and materialSpecular is the shininess of the material (how shiny the material is)
+  // lightSpecular is the highlight of the light, materialSpecular is the highlight of the material
+  
   var materialShininess = 20.0;
 
   var ctm;
