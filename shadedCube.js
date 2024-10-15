@@ -46,7 +46,6 @@ var shadedCube = function () {
   var time = 0;
   var speedMultiplier = 1;
   var isAccelerationMode = true; // New variable to track mode
-  var initialVelocity = 0.1; // Set an initial velocity for constant speed mode
 
   init();
 
@@ -151,6 +150,23 @@ var shadedCube = function () {
       moveFlag = false;
     };
 
+    document.getElementById("ButtonReset").onclick = function () {
+        moveFlag = false;
+        translation = vec3(-1.0, 0.0, 0.0);
+        velocity = 0;
+        time = 0;
+        document.getElementById("velocityValue").textContent = velocity.toFixed(2);
+        document.getElementById("accelerationValue").textContent = acceleration.toFixed(2);
+        document.getElementById("timeValue").textContent = time.toFixed(2);
+        // reset slider too
+        document.getElementById("forceSlider").value = 0;
+        document.getElementById("massSlider").value = 25;
+        document.getElementById("frictionSlider").value = 0.1;
+        document.getElementById("forceValue").textContent = 0;
+        document.getElementById("massValue").textContent = 25;
+        document.getElementById("frictionValue").textContent = 0.1;
+    };
+
     document.getElementById("Speed0_5x").onclick = function () {
       speedMultiplier = 0.5;
     };
@@ -194,7 +210,6 @@ var shadedCube = function () {
         alert("Switched to Acceleration Mode");
       } else {
         alert("Switched to Constant Speed Mode");
-        velocity = initialVelocity; // Set initial velocity for constant speed
       }
     };
 
@@ -215,8 +230,9 @@ var shadedCube = function () {
         acceleration = netForce / mass;
         velocity += acceleration * 0.01 * speedMultiplier; // Update velocity
       } else {
-        // Constant speed mode: maintain initial velocity
         acceleration = 0;
+        var netForce = appliedForce - frictionCoefficient * velocity;
+        velocity = netForce / mass;
       }
 
       translation[0] += velocity * 0.01 * speedMultiplier; // Move to the right
