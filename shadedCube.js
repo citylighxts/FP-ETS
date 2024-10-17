@@ -189,6 +189,10 @@ var shadedCube = function () {
         document.getElementById("massValue").textContent = 25;
         document.getElementById("frictionValue").textContent = 0.1;
         document.getElementById("pathLengthValue").textContent = 2;
+        document.getElementById("distanceValue").textContent = "0.00";
+        // reset rotate
+        theta = vec3(0, 0, 0);
+        flag = false;
     };
 
     document.getElementById("Speed0_5x").onclick = function () {
